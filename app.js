@@ -1,4 +1,3 @@
-
 //styling the head of the webpage
 let heads = document.getElementById("heading");
 heads.style.backgroundColor = 'black';
@@ -13,7 +12,6 @@ mains.style.backgroundColor = "#20ba49";
 mains.style.padding = "25px";
 mains.style.marginTop = "30px";
 mains.style.borderRadius = "15px";
-
 
 let sect = document.querySelectorAll("section");
 for (let i = 0; i < sect.length; i++){
@@ -34,9 +32,8 @@ foots.style.padding = "40px";
 foots.style.marginTop = "30px"
 foots.style.borderRadius = "20px";
 
-//adding or changing content to the contact list of the footer
-let cont = document.querySelector(".ft .branch");
-cont.innerText = "Branch address";
+//adding text content to the first selected h1 with innerText property
+document.querySelector("h1").innerText = "MENU OF ERITREAN FOODS & FRUITS";
 
 //creating new tag(element) and adding before an element
 let newElem = "<h2>Eritrean Foods</h2>";
@@ -48,3 +45,82 @@ document.querySelector("section h2").style.padding = "20px";
 let newUnordered_lst = "<ul><li>Toyotoa</li><li>Chevorlet</li></ul>";
 bran.insertAdjacentHTML("afterend", newUnordered_lst);
 
+//function which accepts string as argument representive css selector
+function addes(css_selector){
+    let elem = document.getElementsByClassName(css_selector);
+    for (let i = 0; i < elem.length; i++){
+        
+        if (elem[i].innerHTML.length < 30){
+            elem[i].innerHTML = "NOT ENOUGH";
+        }
+            
+    }
+}
+addes("Erip")
+
+
+//function which accepts array of string as argument representive css selectors
+function addarry (eri){
+    for (let i = 0; i < eri.length; i++){
+        let arr = document.getElementsByClassName(eri[i]);
+        
+        for (let j = 0; j < arr.length; j++ ){
+            if (arr[j].innerHTML == "happy"){      
+                arr[j].insertAdjacentHTML("afterend", "<p>Happy tag above</p>");
+            }
+        }
+}
+}
+ addarry(["eri-01", "eri-02"]) //calling the function with array of strings
+
+
+ //array of object and injection of object to the page
+const objArry = [
+{
+    username: "Huss",
+    bio: "Huss was frick",
+    profile_image_url: "./huss-image.jpg"
+},
+{
+    username: "Bruss",
+    bio: "Bruss was frick, darn and golly",
+    profile_image_url: "./bruss-image.jpg"
+},
+
+
+{
+    username: "Moss",
+    bio: "Moss was frick",
+    profile_image_url: "./moss-image.jpg"
+
+}
+
+]
+
+//loop for injecting the username of each object to the page
+for (let i = 0; i < objArry.length; i++){
+    let x = document.getElementById("divom")
+    let y = document.createElement('p')
+    x.appendChild(y).innerHTML = objArry[i].username;
+}
+
+//loop for injecting the bio of each object with chosen word being masked to the page
+for (let i = 0; i < objArry.length; i++){
+    let x = document.getElementById("divom")
+    let y = document.createElement('p')
+    let rep = objArry[i].bio
+    x.appendChild(y).innerHTML = rep.replace(/frick|darn|golly/g, "****")
+    
+    
+}
+//loop for injecting the profile image(including the proper widt & height) of each object to the page
+for (let i = 0; i < objArry.length; i++){
+    let x = document.getElementById("divom")
+    let y = document.createElement('img')
+    x.appendChild(y).src = objArry[i].profile_image_url;
+    x.appendChild(y).style.width = "100%";
+    x.appendChild(y).style.height = "800px";
+
+}
+
+document.querySelector("h1").innerText = "MENU OF ERITREAN FOODS & FRUITS";
