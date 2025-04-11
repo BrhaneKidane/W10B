@@ -122,5 +122,3 @@ for (let i = 0; i < objArry.length; i++){
     x.appendChild(y).style.height = "800px";
 
 }
-
-document.querySelector("h1").innerText = "MENU OF ERITREAN FOODS & FRUITS";
